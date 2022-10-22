@@ -19,11 +19,21 @@ public class ApplianceDAO {
 
     private static final String DATABASE_PATH = "src/resources/appliance.xml";
 
+    /**
+     * <p>This method returns the found kettles
+     * </p>
+     * @return list of kettles
+     */
     public List<Kettle> findKettles() {
         Document document = getDocument();
         return getKettles(document.getDocumentElement().getChildNodes());
     }
 
+    /**
+     * <p>This method сreates a DOM document tree
+     * </p>
+     * @return DOM document tree
+     */
     private Document getDocument() {
         Document document = null;
         try {
@@ -35,6 +45,12 @@ public class ApplianceDAO {
         return document;
     }
 
+    /**
+     * <p>This method finds all kettles
+     * </p>
+     * @param appliances elements of the root element
+     * @return list of kettles
+     */
     private List<Kettle> getKettles(NodeList appliances) {
         List<Kettle> kettles = new ArrayList<>();
 
